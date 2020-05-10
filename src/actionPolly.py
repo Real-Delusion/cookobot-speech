@@ -14,7 +14,11 @@ import rospy
 import time # contiene funciones para operar con tiempos
 import actionlib # contiene la clase SimpleActionServer
 from cookobot_speech.msg import AwsPollyAction, AwsPollyGoal, AwsPollyResult, AwsPollyFeedback
-from AWSPolly.polly import Polly
+from polly import Polly
+import os
+
+os.chdir("..")
+rutaCatkin = os.getcwd()+"/catkin_ws/src/cookobot_speech/src"
 # ----------------------------------------------------------------------------------------------------------------------------------------
 # Variables globales temporales
 # ----------------------------------------------------------------------------------------------------------------------------------------
@@ -28,9 +32,9 @@ AWSsesion = [
 # Funcion timer que se ejecuta al recibir el goal
 # ----------------------------------------------------------------------------------------------------------------------------------------
 def callbackAwsPolly(goal):
-    polly = Polly(AWSsesion, './audios/')
-    polly.generarAudio("Hola, me ha generado la clase Polly", "clase.mp3")
-    polly.reproducirAudio("clase.mp3")
+    polly = Polly(AWSsesion, rutaCatkin+'/audios')
+    polly.generarAudio("Hola, me ha generado la clase Polly", goal.nombreArchivo)
+    polly.reproducirAudio(goal.nombreArchivo)
 
 
 # ----------------------------------------------------------------------------------------------------------------------------------------
