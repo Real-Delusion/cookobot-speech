@@ -1,8 +1,8 @@
 <launch>
-<node
-    pkg = "cookbot_speech"
-    type = "actionPolly.py"
-    name = "aws_polly_action"
-    output = "screen">
-</node>
+    <node
+        pkg = "cookobot_speech"
+        type = "actionPolly.py"
+        name = "aws_polly_action"
+        output = "screen">
+    </node>
 </launch>

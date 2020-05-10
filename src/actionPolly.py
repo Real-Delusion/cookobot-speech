@@ -1,9 +1,9 @@
 #! /usr/bin/env python
 
 # ----------------------------------------------------------------------------------------------------------------------------------------
-# Clases ROS
-# Ejercicio action
-# Alejandro Mira Abad
+# Real Delusion Robotics
+# Cookobot-speech
+# Autor: Alejandro Mira Abad
 # ----------------------------------------------------------------------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------------------------------------------------------------------
@@ -13,20 +13,31 @@ import rospy
 
 import time # contiene funciones para operar con tiempos
 import actionlib # contiene la clase SimpleActionServer
-from cookobot_speech.msg import AwsPollyAction, TimerGoal, TimerResult, TimerFeedback
+from cookobot_speech.msg import AwsPollyAction, AwsPollyGoal, AwsPollyResult, AwsPollyFeedback
+from AWSPolly.polly import Polly
+# ----------------------------------------------------------------------------------------------------------------------------------------
+# Variables globales temporales
+# ----------------------------------------------------------------------------------------------------------------------------------------
+AWSsesion = [
+    "ASIA5U2MF2VW4QGB3Z7Y",
+    "drlOlr4/ikNp4WC1NLDE9/GMXPB4QClRw86VG+Sp",
+    "FwoGZXIvYXdzEOT//////////wEaDJrmxU76MHr8OavbMiLCAeZnJ/zEdGEi/p6B/9ORWV0cr58L+sxyXdSbjaP9YF/pB8mGqIe95xjwEuMY9AhxuNGMiE7z5wnAnEPTosmtDfzdcvJo+FBdXKtQ4rtrKdJKeAN5qZ1958BvP6eXxvq0nU8dP3KRHDCMWO1WtY+041PuZfPoKDF31Ms110om8PsejfLSmBKnJ1vfxlsBmhragJkYu4xHCVpFyTFEshUorPd3RD4+XRre2RUDQ7SQNxh1OdcFKF0jtRtD4OdQjKDUVaUGKLiJ4fUFMi3Tr+IMZNZgA9gIHE23wTVqF43KagxtG2qQ6lN0+z5utHJh2JuB3o6XFnT6+ww=",
+]
 
 # ----------------------------------------------------------------------------------------------------------------------------------------
 # Funcion timer que se ejecuta al recibir el goal
 # ----------------------------------------------------------------------------------------------------------------------------------------
 def callbackAwsPolly(goal):
-    pass
+    polly = Polly(AWSsesion, './audios/')
+    polly.generarAudio("Hola, me ha generado la clase Polly", "clase.mp3")
+    polly.reproducirAudio("clase.mp3")
 
 
 # ----------------------------------------------------------------------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------------------------------------------------------------------- 
 rospy.init_node('aws_polly_action')
-server = actionlib.SimpleActionServer('timer', AwsPollyAction, callbackAwsPolly, False) # creamos el servidor de la accion
+server = actionlib.SimpleActionServer('awsPolly', AwsPollyAction, callbackAwsPolly, False) # creamos el servidor de la accion
 # Los parametros son: nombre del servidor, tipo de la accion, funcion a ejecutar y variable que posibilita el inicio atomatico del servidor
 server.start() # iniciamos el servidor
 rospy.loginfo("Lanzamos el servidor aws_polly_action")
