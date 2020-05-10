@@ -1,0 +1,11 @@
+# Definición de los mensajes de la acción
+# Goal: cantidad de tiempo a esperar
+duration time_to_wait
+---
+# Result: tiempo que ha pasado y cuantas actualizaciones se han dado
+duration time_elapsed
+uint32 updates_sent
+---
+# Feedback: tiempo pasado y tiempo que queda
+duration time_elapsed
+duration time_remaining
