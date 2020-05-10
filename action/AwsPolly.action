@@ -1,6 +1,7 @@
 # Definición de los mensajes de la acción
-# Goal: cantidad de tiempo a esperar
+# Goal: 
 string nombreArchivo
+string texto
 ---
 # Result: tiempo que ha pasado y cuantas actualizaciones se han dado
 duration time_elapsed

@@ -33,7 +33,7 @@ AWSsesion = [
 # ----------------------------------------------------------------------------------------------------------------------------------------
 def callbackAwsPolly(goal):
     polly = Polly(AWSsesion, rutaCatkin+'/audios')
-    polly.generarAudio("Hola, me ha generado la clase Polly", goal.nombreArchivo)
+    polly.generarAudio(goal.texto, goal.nombreArchivo)
     polly.reproducirAudio(goal.nombreArchivo)
 
 
