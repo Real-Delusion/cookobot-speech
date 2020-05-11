@@ -54,7 +54,7 @@ class Polly:
     def reproducirAudio(self,nombreArchivo):
         archivo = self.rutaFicheroPistas+"/"+nombreArchivo # Ruta donde se encuentra el archivo
         
-        #  Uso de la libreria pygame para la reporducción de audio
+        #  Uso de la libreria pygame para la reporduccion de audio
         print("Play Sound")
         pygame.init()
         sound = pygame.mixer.Sound(archivo) # Guardamos el audio en una variable
