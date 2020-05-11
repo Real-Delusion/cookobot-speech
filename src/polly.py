@@ -1,13 +1,7 @@
 import boto3
+import pygame
+import time
 
-# ----------------------------------------------------------------------------------------------------------------------------------------
-# Variables globales temporales
-# ----------------------------------------------------------------------------------------------------------------------------------------
-# AWSsesion = [
-#     "ASIA5U2MF2VW4QGB3Z7Y",
-#     "drlOlr4/ikNp4WC1NLDE9/GMXPB4QClRw86VG+Sp",
-#     "FwoGZXIvYXdzEOT//////////wEaDJrmxU76MHr8OavbMiLCAeZnJ/zEdGEi/p6B/9ORWV0cr58L+sxyXdSbjaP9YF/pB8mGqIe95xjwEuMY9AhxuNGMiE7z5wnAnEPTosmtDfzdcvJo+FBdXKtQ4rtrKdJKeAN5qZ1958BvP6eXxvq0nU8dP3KRHDCMWO1WtY+041PuZfPoKDF31Ms110om8PsejfLSmBKnJ1vfxlsBmhragJkYu4xHCVpFyTFEshUorPd3RD4+XRre2RUDQ7SQNxh1OdcFKF0jtRtD4OdQjKDUVaUGKLiJ4fUFMi3Tr+IMZNZgA9gIHE23wTVqF43KagxtG2qQ6lN0+z5utHJh2JuB3o6XFnT6+ww=",
-# ]
 
 class Polly:
 
@@ -20,7 +14,7 @@ class Polly:
         # Voz que se usara por defecto 
         self.vozId = 'Conchita'
         # Formato en el que se genera la pista de audio pr defecto
-        self.outputFormat = "mp3"
+        self.outputFormat = "ogg_vorbis"
         
         # Creamos la sesion de AWS
         session = boto3.Session( 
@@ -58,7 +52,15 @@ class Polly:
     def reproducirAudio(self,nombreArchivo):
         archivo = self.rutaFicheroPistas+"/"+nombreArchivo
         
+        print(archivo)
+        
         print("Play Sound")
+        pygame.init()
+        sound = pygame.mixer.Sound(archivo)
+        clock = pygame.time.Clock()
+        sound.play()
+        time.sleep(sound.get_length() + 0.5)
+        pygame.quit()
 
 
 # Exmaple
