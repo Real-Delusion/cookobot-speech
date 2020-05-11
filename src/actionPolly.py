@@ -44,7 +44,7 @@ def callbackAwsPolly(goal):
             polly.borrarAudio(goal.nombreArchivo)
         # Error
         else:
-            print("Error: no se ha seleccionado ninguna hación a realizar con el audio")
+            print("Error: no se ha seleccionado ninguna hacion a realizar con el audio")
         
         result = AwsPollyResult() # se construye el mensaje de respuesta
         result.success = True
