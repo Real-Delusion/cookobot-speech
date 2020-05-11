@@ -4,10 +4,8 @@ string nombreArchivo
 string texto
 uint32 funcion
 ---
-# Result: tiempo que ha pasado y cuantas actualizaciones se han dado
-duration time_elapsed
-uint32 updates_sent
+# Result: comprobacion fin
+bool success
 ---
 # Feedback: tiempo pasado y tiempo que queda
 duration time_elapsed
-duration time_remaining
