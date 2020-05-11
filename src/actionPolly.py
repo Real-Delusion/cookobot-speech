@@ -23,9 +23,9 @@ rutaCatkin = os.getcwd()+"/catkin_ws/src/cookobot_speech/src"
 # Variables globales temporales
 # ----------------------------------------------------------------------------------------------------------------------------------------
 AWSsesion = [
-    "",
-    "",
-    "",
+    "ASIA5U2MF2VW7DKFHD43",
+    "sgdG+S3NEW+Vm+SM77J//yGxPe1zaUPxXNYHXNvD",
+    "FwoGZXIvYXdzEPP//////////wEaDMvy/43PX6ewqTLDlSLCAUtpvPifrCOG1QUk+RqOCgrSIlKwCc6MZIHCqNeG74SsXkenbmQkeYnj0ykyZC4Tk04LkghudFDjdPo1waAvusg5/WYW2QALNzsSJ2Fx/z6TyUm+nHaDxwTudfdvZYsMfB7lf1CyfmN9xW4D9rkmOsimneWiDo78SskPCo5KRbc4iuVcWMdXIrU/ykMtTjfiC6PywBYcI/0DjXBic5avzurYyuX8Pu+rzh6idmnz/wXCk7lvSu76LJKHdYxla3mMORFIKL6y5PUFMi1Ig5rHEMZeM71hiTA8xpFxUnoDmWSKRWRlHixPHacCK733oUPb8DnpdKeA47A=",
 ]
 
 # ----------------------------------------------------------------------------------------------------------------------------------------
