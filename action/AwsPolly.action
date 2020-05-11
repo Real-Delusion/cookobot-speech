@@ -2,6 +2,7 @@
 # Goal: 
 string nombreArchivo
 string texto
+uint32 funcion
 ---
 # Result: tiempo que ha pasado y cuantas actualizaciones se han dado
 duration time_elapsed

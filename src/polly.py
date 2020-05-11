@@ -1,6 +1,7 @@
 import boto3
 import pygame
 import time
+import os
 
 
 class Polly:
@@ -33,6 +34,7 @@ class Polly:
         
     # Metodo que genera una pista de audio a partir de un texto
     def generarAudio(self, texto, nombreArchivo):
+        print("Generate sound file")
         response = self.polly_client.synthesize_speech(
                 VoiceId=self.vozId,
                 # Engine="neural",
@@ -50,18 +52,21 @@ class Polly:
     
     # Metodo que reproduce la pista
     def reproducirAudio(self,nombreArchivo):
-        archivo = self.rutaFicheroPistas+"/"+nombreArchivo
+        archivo = self.rutaFicheroPistas+"/"+nombreArchivo # Ruta donde se encuentra el archivo
         
-        print(archivo)
-        
+        #  Uso de la libreria pygame para la reporducción de audio
         print("Play Sound")
         pygame.init()
-        sound = pygame.mixer.Sound(archivo)
-        clock = pygame.time.Clock()
-        sound.play()
-        time.sleep(sound.get_length() + 0.5)
+        sound = pygame.mixer.Sound(archivo) # Guardamos el audio en una variable
+        sound.play() # Reproduccion del audio
+        time.sleep(sound.get_length() + 0.5) # 
         pygame.quit()
-
+    
+    # Metodo que reproduce la pista
+    def borrarAudio(self,nombreArchivo):
+        print("Delete sound file")
+        archivo = self.rutaFicheroPistas+"/"+nombreArchivo # Ruta donde se encuentra el archivo
+        os.remove(archivo) # Borrar archivo
 
 # Exmaple
 # polly = Polly(AWSsesion, './../audios')

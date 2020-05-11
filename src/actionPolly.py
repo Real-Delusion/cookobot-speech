@@ -33,8 +33,18 @@ AWSsesion = [
 # ----------------------------------------------------------------------------------------------------------------------------------------
 def callbackAwsPolly(goal):
     polly = Polly(AWSsesion, rutaCatkin+'/audios')
-    polly.generarAudio(goal.texto, goal.nombreArchivo)
-    polly.reproducirAudio(goal.nombreArchivo)
+    # Generar audio
+    if goal.funcion == 1:
+        polly.generarAudio(goal.texto, goal.nombreArchivo)
+    # Escuchar audio
+    elif goal.funcion == 2:
+        polly.reproducirAudio(goal.nombreArchivo)
+    # Borrar audio
+    elif goal.funcion == 3:
+        polly.borrarAudio(goal.nombreArchivo)
+    # Error
+    else:
+        print("Error: no se ha seleccionado ninguna hación a realizar con el audio")
 
 
 # ----------------------------------------------------------------------------------------------------------------------------------------
